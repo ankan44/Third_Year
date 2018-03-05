@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.myapplication..SignUpActivity">
+    <TextView
+        android:id="@+id/nameHead"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:text="Name"
+        android:textColor="@color/accountLabel"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        tools:layout_editor_absoluteX="12dp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        app:layout_constraintBottom_toTopOf="@+id/mailHead"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <Button
+        android:id="@+id/next"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/login_button_selector"
+        android:text="Next"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/mailHead"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:text="Email-ID"
+        android:textColor="@color/accountLabel"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        tools:layout_editor_absoluteX="12dp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="Email-ID"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/bloodHead"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <TextView
+        android:id="@+id/bloodHead"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="33dp"
+        android:paddingTop="16dp"
+        android:text="Blood Group"
+        android:textColor="@color/accountLabel"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner2"
+        tools:layout_editor_absoluteX="16dp" />
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="63dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        tools:layout_editor_absoluteX="16dp" />
+
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:paddingTop="16dp"
+        android:text="Gender"
+        android:textColor="@color/accountLabel"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner1"
+        tools:layout_editor_absoluteX="16dp" />
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="186dp"
+        android:onClick="onClickSelectContact"
+        android:text="Select a Contact"
+        app:layout_constraintBottom_toBottomOf="@+id/next"
+        tools:layout_editor_absoluteX="8dp" />
+
+
+</android.support.constraint.ConstraintLayout>

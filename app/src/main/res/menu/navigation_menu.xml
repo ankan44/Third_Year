@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:item="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/nav_medical_report"
+        android:title="Medical Report"/>
+
+    <item
+        android:id="@+id/nav_opd"
+        android:title="OPD"/>
+
+    <item
+        android:id="@+id/nav_book_an_appointment"
+        android:title="Book An Appointment"/>
+
+    <item
+        android:id="@+id/nav_health_data"
+        android:title="Health Data"/>
+
+    <item
+        android:id="@+id/nav_emergency_contacts"
+        android:title="Emergency Contacts"/>
+
+    <item
+        android:id="@+id/nav_reminder"
+        android:title="Reminder"/>
+
+    <item
+        android:id="@+id/nav_your_skill"
+        android:title="Your Skill"/>
+
+    <item
+        android:id="@+id/nav_logout"
+
+        android:title="Logout"/>
+
+
+
+
+</menu>

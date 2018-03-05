@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@android:color/holo_red_light">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageButton"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="46dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:onClick="ChooseImage"
+        android:src="@drawable/img" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButton"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/imageButton"
+        android:layout_toRightOf="@+id/imageButton"
+        android:background="@null"
+        android:cursorVisible="false"
+        android:fontFamily="sans-serif-medium"
+        android:hint="Name"
+        android:imeOptions="actionSend"
+        android:inputType="text"
+        android:maxLength="60"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+
+</RelativeLayout>
