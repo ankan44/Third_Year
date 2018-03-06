@@ -49,7 +49,7 @@ nameText=(TextView)findViewById(R.id.NameText);
             public void onSuccess(final Account account) {
                 // Get Account Kit ID
 
-                id.setText(getIntent().getStringExtra("email"));
+                id.setText(getIntent().getStringExtra("number"));
                 nameText.setText(getIntent().getStringExtra("name"));
                 bloodGroup.setText(getIntent().getStringExtra("blood"));
                 sex.setText(getIntent().getStringExtra("sex"));
