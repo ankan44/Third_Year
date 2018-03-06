@@ -89,8 +89,7 @@ public class LocActivity extends AppCompatActivity {
 
                             Intent intent= new Intent(LocActivity.this,EmargencyResponseActivity.class);
 
-                            String phone = "9827522617";
-                            Uri uri=Uri.parse("Hey, I am in trouble at http://maps.google.com/?q="+Double.toString(mLastLocation.getLatitude())+","+Double.toString(mLastLocation.getLongitude()));
+String phone = getIntent().getStringExtra("number");                            Uri uri=Uri.parse("Hey, I am in trouble at http://maps.google.com/?q="+Double.toString(mLastLocation.getLatitude())+","+Double.toString(mLastLocation.getLongitude()));
                             SmsManager smsManager = SmsManager.getDefault();
                             smsManager.sendTextMessage(phone, null, uri.toString(), null, null);
                             if (ActivityCompat.checkSelfPermission(LocActivity.this,
