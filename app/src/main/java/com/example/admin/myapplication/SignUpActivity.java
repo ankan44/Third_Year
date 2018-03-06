@@ -22,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_PICK_CONTACTS = 4;
     public String contactID;     // contacts unique ID
     EditText username;
+       public String number;
     EditText email;
 Spinner dropdown;
     Spinner sex;
@@ -122,7 +123,7 @@ Spinner dropdown;
             Log.d(TAG, "Contact Phone Number: " + contactNumber);
             Button button = (Button)findViewById(R.id.button);
             button.setText(contactNumber);
-
+number=contactNumber;
         }
 
         private void retrieveContactName() {
