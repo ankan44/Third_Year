@@ -50,6 +50,7 @@ public class EmergencyActActivity extends AppCompatActivity
             public void onClick(View view) {
 
                 Intent intent= new Intent(EmergencyActActivity.this,LocActivity.class);
+                intent.putExtra("number", getIntent().getStringExtra("number"));
                 startActivity(intent);
 
 
