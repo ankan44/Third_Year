@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Intent emergencyIntent = new Intent(MainActivity.this, EmergencyActActivity.class);
-
+emergencyIntent.putExtra("number", getIntent().getStringExtra("number"));
                 startActivity(emergencyIntent);
             }
         });
