@@ -155,7 +155,7 @@ number=contactNumber;
                     intent.putExtra("email", email.getText().toString());
                     intent.putExtra("blood", dropdown.getSelectedItem().toString());
                     intent.putExtra("sex", sex.getSelectedItem().toString());
-                    intent.putExtra("number", contactID);
+                    intent.putExtra("number", number);
 
                     startActivity(intent);
                 }
