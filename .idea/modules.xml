@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Safly.iml" filepath="$PROJECT_DIR$/Safly.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Safely.iml" filepath="$PROJECT_DIR$/Safely.iml" />
+      <module fileurl="file://C:\Users\admin\Desktop\Safely\Safly.iml" filepath="C:\Users\admin\Desktop\Safely\Safly.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\admin\Desktop\Safely\app\app.iml" filepath="C:\Users\admin\Desktop\Safely\app\app.iml" />
     </modules>
   </component>
 </project>
