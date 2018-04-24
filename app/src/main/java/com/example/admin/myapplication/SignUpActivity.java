@@ -16,6 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SignUpActivity extends AppCompatActivity {
 
     private static final String TAG = SignUpActivity.class.getSimpleName();
@@ -24,9 +28,15 @@ public class SignUpActivity extends AppCompatActivity {
     EditText username;
        public String number;
     EditText email;
-Spinner dropdown;
+    Spinner blood_group;
     Spinner sex;
     private Uri uriContact;
+
+
+    private FirebaseDatabase mFirebaseDatabase= FirebaseDatabase.getInstance();
+    private DatabaseReference mMessageDatabaseReference = mFirebaseDatabase.getReference().child("User_Data");
+    private ChildEventListener mChildEventListener;
+    //private MessageAdapter mMessageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +47,16 @@ Spinner dropdown;
         email = (EditText) findViewById(R.id.email);
 
         //get the spinner from the xml.
-        dropdown = (Spinner) findViewById(R.id.spinner1);
+        blood_group = (Spinner) findViewById(R.id.spinner2);
 //create a list of items for the spinner.
         String[] items = new String[]{"A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"};
 //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-//There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
 //set the spinners adapter to the previously created one.
-        dropdown.setAdapter(adapter);
+        blood_group.setAdapter(adapter);
 
         //get the spinner from the xml.
-        sex = (Spinner) findViewById(R.id.spinner2);
+        sex = (Spinner) findViewById(R.id.spinner1);
 //create a list of items for the spinner.
         String[] genders = new String[]{"Male", "Female", "Others"};
 //create an adapter to describe how the items are displayed, adapters are used in several places in android.
@@ -153,11 +162,18 @@ number=contactNumber;
                     Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                     intent.putExtra("name", username.getText().toString());
                     intent.putExtra("email", email.getText().toString());
-                    intent.putExtra("blood", dropdown.getSelectedItem().toString());
+                    intent.putExtra("blood", blood_group.getSelectedItem().toString());
                     intent.putExtra("sex", sex.getSelectedItem().toString());
                     intent.putExtra("number", number);
 
                     startActivity(intent);
+                        // TODO: Send data to database.
+                    DatabaseStuff datainput = new DatabaseStuff(username.getText().toString(),email.getText().toString(),sex.getSelectedItem().toString(),blood_group.getSelectedItem().toString(),number);
+                    mMessageDatabaseReference.push().setValue(datainput);
+
+                        // Clear input box
+                        //mMessageEditText.setText("");
+
                 }
             });
 
@@ -166,3 +182,7 @@ number=contactNumber;
 
 
 }
+
+
+
+
