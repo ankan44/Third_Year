@@ -9,13 +9,15 @@ public class DatabaseStuff {
     private String blood_group;
     private String email;
     private String Emergency_Contact_number;
+    private String Contact_number_user;
 
-    public DatabaseStuff(String name, String email, String sex,String blood_group,String Emergency_Contact_number) {
+    public DatabaseStuff(String name, String email, String sex,String blood_group,String Emergency_Contact_number, String Contact_number_user) {
         this.email = email;
         this.name = name;
         this.sex = sex;
         this.blood_group=blood_group;
         this.Emergency_Contact_number = Emergency_Contact_number;
+        this.Contact_number_user = Contact_number_user;
     }
 
     public String getName() {
@@ -56,6 +58,13 @@ public class DatabaseStuff {
     public void setEmergency_Contact_number(String Emergency_Contact_number) {
         this.Emergency_Contact_number = Emergency_Contact_number;
     }
+    public String getContact_number_user() {
+        return Contact_number_user;
+    }
+    public void setContact_number_user(String name) {
+        this.Contact_number_user = name;
+    }
 }
+
 
 

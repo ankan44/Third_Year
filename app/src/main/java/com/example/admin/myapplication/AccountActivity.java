@@ -1,7 +1,9 @@
 package com.example.admin.myapplication;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,7 +29,12 @@ public class AccountActivity extends AppCompatActivity {
     TextView nameText;
     TextView bloodGroup;
     TextView sex;
-
+    String userNumber;
+    String name;
+     String email;
+     String blood;
+     String gender;
+     public static  final String DEFAULT ="N/A";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,26 +48,22 @@ public class AccountActivity extends AppCompatActivity {
 bloodGroup=(TextView)findViewById(R.id.bloodText);
 nameText=(TextView)findViewById(R.id.NameText);
         sex=(TextView)findViewById(R.id.sex);
-
-
-
+        final SignUpActivity signup = new SignUpActivity();
         AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
             @Override
             public void onSuccess(final Account account) {
-                // Get Account Kit ID
-
-                id.setText(getIntent().getStringExtra("number"));
-                nameText.setText(getIntent().getStringExtra("name"));
-                bloodGroup.setText(getIntent().getStringExtra("blood"));
-                sex.setText(getIntent().getStringExtra("sex"));
                 PhoneNumber phoneNumber = account.getPhoneNumber();
+                userNumber = phoneNumber.toString();
                 if (account.getPhoneNumber() != null) {
                     // if the phone number is available, display it
                     String formattedPhoneNumber = formatPhoneNumber(phoneNumber.toString());
                     info.setText(formattedPhoneNumber);
                     infoLabel.setText(R.string.phone_label);
-
-
+                    setData();
+                    nameText.setText(name);
+                    bloodGroup.setText(blood);
+                    id.setText(email);
+                    sex.setText(gender);
                 }
 
             }
@@ -73,6 +76,17 @@ nameText=(TextView)findViewById(R.id.NameText);
                 Toast.makeText(AccountActivity.this, toastMessage, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void setData()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        name = sharedPreferences.getString("name",DEFAULT);
+        blood = sharedPreferences.getString("blood",DEFAULT);
+        email = sharedPreferences.getString("email",DEFAULT);
+        gender = sharedPreferences.getString("sex",DEFAULT);
+
+
     }
 
     public void onLogout(View view) {

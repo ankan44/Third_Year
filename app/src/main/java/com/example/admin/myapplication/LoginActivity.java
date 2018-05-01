@@ -1,6 +1,8 @@
 package com.example.admin.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.facebook.appevents.AppEventsLogger;
 public class LoginActivity extends AppCompatActivity {
 
     public static int APP_REQUEST_CODE = 1;
+    public int count=0;
+    int tempInt = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         // check for an existing access token
         AccessToken accessToken = AccountKit.getCurrentAccessToken();
         if (accessToken != null) {
-            // if previously logged in, proceed to the account activity
-            launchAccountActivity();
+            launchEmergencyActivity();
         }
     }
 
@@ -44,12 +47,25 @@ public class LoginActivity extends AppCompatActivity {
                 String toastMessage = loginResult.getError().getErrorType().getMessage();
                 Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
             } else if (loginResult.getAccessToken() != null) {
-                // on successful login, proceed to the account activity
-                launchAccountActivity();
+                count = readSharedPreferenceInt("cntSP","cntKey");
+                if(count>=0){
+                    Intent intent = new Intent();
+                    intent.setClass(LoginActivity.this, SignUpActivity.class);
+                    startActivity(intent);
+                    count++;
+                    writeSharedPreference(count,"cntSP","cntKey");
+                }
             }
         }
-
     }
+
+    private void launchEmergencyActivity()
+    {
+        Intent intent = new Intent(LoginActivity.this, com.example.admin.myapplication.MainActivity.class);
+        startActivity(intent);
+    }
+
+
 
     private void onLogin(final LoginType loginType) {
         // create intent for the Account Kit activity
@@ -74,11 +90,20 @@ public class LoginActivity extends AppCompatActivity {
 
         onLogin(LoginType.PHONE);
     }
+    //Read from Shared Preferance
+    public int readSharedPreferenceInt(String spName,String key){
+        SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
+        return tempInt = sharedPreferences.getInt(key, 0);
+    }
 
-    private void launchAccountActivity() {
-        Intent intent = new Intent(LoginActivity.this, com.example.admin.myapplication.SignUpActivity.class);
-        startActivity(intent);
+    //write shared preferences in integer
+    public void writeSharedPreference(int amount,String spName,String key ){
 
+        SharedPreferences sharedPreferences = getSharedPreferences(spName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt(key, amount);
+        editor.commit();
     }
 
 }
